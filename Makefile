@@ -1,16 +1,17 @@
 include $(TOPDIR)/rules.mk
 
-PKG_NAME:=rtl88x2bu
-PKG_RELEASE=1
+PKG_NAME:=rtl88x2bu-al
+PKG_RELEASE=2
 
 PKG_LICENSE:=GPLv2
 PKG_LICENSE_FILES:=
 
 PKG_SOURCE_PROTO:=git
 PKG_SOURCE_URL:=https://github.com/morrownr/88x2bu-20210702.git
-PKG_MIRROR_HASH:=d8bc277348cf97a1b645e2c1c07c9a0dcb9ce5796b7fd5bdce87d19b5f3e17bb
-PKG_SOURCE_DATE:=2022-10-19
-PKG_SOURCE_VERSION:=73a681a0db4a9ad132f85d567e225374c1e6a12b
+PKG_MIRROR_HASH:=skip
+PKG_SOURCE_DATE:=2026-01-09
+PKG_SOURCE_VERSION:=fecac340fb117eb979f4bb6d28e29730384c382b
+PKG_MAINTAINER:=morrownr <https://github.com/morrownr>
 
 PKG_BUILD_PARALLEL:=1
 
@@ -19,7 +20,7 @@ STAMP_CONFIGURED_DEPENDS := $(STAGING_DIR)/usr/include/mac80211-backport/backpor
 include $(INCLUDE_DIR)/kernel.mk
 include $(INCLUDE_DIR)/package.mk
 
-define KernelPackage/rtl88x2bu
+define KernelPackage/rtl88x2bu-al
   SUBMENU:=Wireless Drivers
   TITLE:=Driver for Realtek 88x2bu devices
   DEPENDS:=+kmod-cfg80211 +kmod-usb-core +@DRIVER_11N_SUPPORT +@DRIVER_11AC_SUPPORT
