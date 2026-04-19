@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: GPL-2.0-or-later
+
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=rtl88x2bu-al
@@ -22,12 +24,11 @@ include $(INCLUDE_DIR)/package.mk
 
 define KernelPackage/rtl88x2bu-al
   SUBMENU:=Wireless Drivers
-  TITLE:=Driver for Realtek 88x2bu devices
+  TITLE:=Driver for Realtek 88x2bu devices by morrownr
   DEPENDS:=+kmod-cfg80211 +kmod-usb-core +@DRIVER_11N_SUPPORT +@DRIVER_11AC_SUPPORT
-  FILES:=\
-	$(PKG_BUILD_DIR)/88x2bu.ko
+  FILES:=$(PKG_BUILD_DIR)/88x2bu.ko
   AUTOLOAD:=$(call AutoProbe,88x2bu)
-  PROVIDES:=kmod-rtl88x2bu
+  PROVIDES:=kmod-rtl88x2bu-al
 endef
 
 NOSTDINC_FLAGS := \
@@ -51,4 +52,4 @@ define Build/Compile
 		modules
 endef
 
-$(eval $(call KernelPackage,rtl88x2bu))
+$(eval $(call KernelPackage,rtl88x2bu-al))
